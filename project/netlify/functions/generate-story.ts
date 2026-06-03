@@ -168,7 +168,12 @@ IMPORTANT:
     if (jsonMatch) {
       jsonStr = jsonMatch[0];
     }
-
+    
+    jsonStr = jsonStr
+     .replace(/```json/g, '')
+     .replace(/```/g, '')
+     .trim();
+    
     let result: GenerationResult;
 
 try {
