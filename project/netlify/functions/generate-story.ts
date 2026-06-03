@@ -119,7 +119,7 @@ IMPORTANT:
 
     const userPrompt = `Create a future prediction for someone with this profile:\n\n${contextStr}\n\nBuild a vivid, inspiring, realistic future 15 years ahead. Use ONLY simple, conversational everyday English. NO buzzwords. Write like you're texting a friend. Make it specific to their dreams and personality.`;
 
-    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
