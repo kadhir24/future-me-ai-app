@@ -169,7 +169,21 @@ IMPORTANT:
       jsonStr = jsonMatch[0];
     }
 
-    const result: GenerationResult = JSON.parse(jsonStr);
+    let result: GenerationResult;
+
+try {
+  result = JSON.parse(jsonStr);
+} catch (e) {
+  console.error('Raw Gemini response:', content);
+
+  return {
+    statusCode: 500,
+    body: JSON.stringify({
+      error: 'Invalid JSON from Gemini',
+      raw: content
+    }),
+  };
+}
 
     // Ensure all text is clean (no encoding issues)
     const cleanText = (text: string | undefined): string => {
