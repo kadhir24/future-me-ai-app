@@ -164,20 +164,17 @@ IMPORTANT:
 
     // Extract JSON from response (Gemini might wrap it in markdown)
    let jsonStr = content
-     .replace(/```json\s*/g, '')
-     .replace(/```\s*/g, '')
-     .trim();
+    .replace(/```json\s*/gi, '')
+    .replace(/```\s*/g, '')
+    .trim();
 
-   const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
-   if (jsonMatch) {
-     jsonStr = jsonMatch[0];
-   }
-    
-    jsonStr = jsonStr
-     .replace(/```json/g, '')
-     .replace(/```/g, '')
-     .trim();
-    
+  const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
+
+  if (jsonMatch) {
+  jsonStr = jsonMatch[0];
+}
+
+  console.log('JSON TO PARSE:', jsonStr);
     let result: GenerationResult;
 
 try {
